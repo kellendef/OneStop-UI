@@ -1,0 +1,69 @@
+/* .title-box {
+	
+} */
+
+.page-title {
+	text-align: center;
+	font-family: "copperplate", sans-serif;
+	font-size:  50px;
+	margin-bottom: 0;
+	color: darkred;
+}
+
+.page-subtitle {
+	text-align: center;
+	color: white;
+	color: darkred;
+	padding-bottom: 2px;
+}
+
+.menu-box {
+	background-color: #2a2f36;
+	width: 70vw;
+	height: auto;
+	margin: auto;
+	margin-bottom: 10px;
+	border-radius:  50px;
+	padding: 30px;
+	
+}
+
+.footer {
+	text-align: center;
+	color: white;
+}
+
+.menu-subheader {
+	font-size:  15px;
+	color: lightgrey;
+}
+
+.subtotal {
+	color: lightgrey;
+	font-size: 45px;
+}
+
+body {
+	background-color: #555a61;
+}
+
+.mod-input {
+	display: flex;
+}
+
+#commentTitle {
+	color: white;
+}
+
+#commentInstructions {
+	color: white;
+}
+
+.submitText {
+	text-align: center;
+	color: white;
+}
+
+.error {
+	color: red;
+}
