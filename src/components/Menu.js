@@ -3,6 +3,7 @@ import Item from './Item';
 import Subtotal from './Subtotal';
 import Submit from './Submit';
 import ErrorDisplay from './ErrorDisplay';
+import Confirm from './Confirm'
 //import data from '../data';
 
 
@@ -22,9 +23,7 @@ export default function Menu(){
                 }
                 else throw Error(response.statusText)
             })
-            //.then(data => data.json())
             .then(data => setMenu(data))     //set the menu state to api data
-            .then(data => console.log(data))
             .catch(error => {
                 console.log(error)
                 setIsError({status: true, error: error.toString()})
@@ -44,10 +43,9 @@ export default function Menu(){
 
     function incrementQuantity(itemName, price){
         const index = order.items.findIndex(element => element === itemName);
-        console.log(index);
         if(index === -1){
             let names = [...order.items, itemName]
-            let quantities = [...order.quantities, 1]
+            let quantities = [...order.quantities, 1] //since the item isn't in the order yet and it has been incremented, set initial quantity to 1
             setOrder(() => ({
                 items: names,
                 quantities: quantities
@@ -55,7 +53,7 @@ export default function Menu(){
         }
         else{
             let quantity = order.quantities[index];
-            quantity += 1;
+            quantity += 1;      //add one to quantity at the same index in the quantities array as in the items array(these arrays will be processed into a json object that is easier to work with on submit. )
             let names = [...order.items]
             let quantities = [...order.quantities]
             quantities[index] = quantity
@@ -72,7 +70,7 @@ export default function Menu(){
         console.log(index);
         if(index === -1){
             let names = [...order.items, itemName]
-            let quantities = [...order.quantities, 0]
+            let quantities = [...order.quantities, 0] //if this item isn't in the list, we dont want to have a negative item. 
             setOrder(() => ({
                 items: names,
                 quantities: quantities
@@ -103,7 +101,10 @@ export default function Menu(){
                                                        description={element.Description} price={element.Price} 
                                                        quantity={order.quantities[order.items.indexOf(element.Name)] || 0}
                                                        increment={incrementQuantity}
-                                                       decrement={decrementQuantity}/>))
+                                                       decrement={decrementQuantity}/>)) //pass the item component menu info, 
+                                                       //as well as the current quantity in the order. Since the order of 
+                                                       //food items in the order array can vary, the proper index is found with 
+                                                       //indexOf to find the correct quantity. 
 
     return(
       <div className="menu-box">
@@ -119,7 +120,8 @@ export default function Menu(){
 
             { submitted === true && 
             <div>
-            <h1 className = 'submitText'>Thank you for your order!</h1>
+                <h1 className='submitText'>Thanks for your order!</h1>
+                <Confirm order = {order} total = {subtotal} />
             </div> }
 
             {isError.status === true && 

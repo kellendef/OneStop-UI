@@ -1,36 +1,44 @@
-/* .title-box {
-	
-} */
+.title-box {
+	position:  sticky;
+	top:0;
+	left:0;
+	margin: 0;
+	margin-bottom: 20px;
+	display: block;
+	height: 150px;
+	width: 100vw;
+	background-color: rgb(208, 208, 208, 0.5);
+} 
 
 .page-title {
 	text-align: center;
-	font-family: "copperplate", sans-serif;
+  	font-family: "apple chancery", cursive;
 	font-size:  50px;
-	margin-bottom: 0;
-	color: darkred;
+	margin: 0;
+	color: black;
 }
 
 .page-subtitle {
 	text-align: center;
-	color: white;
-	color: darkred;
+	color: black;
 	padding-bottom: 2px;
 }
 
 .menu-box {
-	background-color: #2a2f36;
+	display: block;
+	background-color: rgb(42, 47, 54, 0.93);
 	width: 70vw;
 	height: auto;
 	margin: auto;
 	margin-bottom: 10px;
 	border-radius:  50px;
 	padding: 30px;
-	
 }
 
 .footer {
 	text-align: center;
-	color: white;
+	color: darkslategrey;
+	font-weight: bold;
 }
 
 .menu-subheader {
@@ -62,8 +70,26 @@ body {
 .submitText {
 	text-align: center;
 	color: white;
+	font-family: "apple chancery", cursive;
 }
 
 .error {
 	color: red;
+}
+
+.confirm {
+	color: white;
+}
+
+.confirmBtn {
+	text-align: center;
+}
+body {
+	background-image: url(/public/backimg.png);
+	margin: 0;
+}
+
+html {
+	margin:  0;
+	padding:  0;
 }
